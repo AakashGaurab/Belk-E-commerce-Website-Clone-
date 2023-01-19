@@ -1,0 +1,98 @@
+.top_navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.logo{
+    width: 17%;
+}
+.lower_navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:1px solid black;
+}
+
+.lower_navbar>div{
+    width: 30%;
+}
+.lower_navbar>div:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.upper_body{
+    width: 95%;
+    margin: auto;
+}
+.upper_body img{
+    margin: 15px auto 15px auto;
+    width: 100%;
+}
+.daily_deals{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bed_sheet{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.suit_case{
+    display:grid ;
+    grid-template-columns: repeat(4,1fr);
+    gap: 5px;
+}
+.summer_waves{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10fr;
+}
+.shorts{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+.rings{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+.category{
+    display: flex;
+    justify-content: space-between;
+}
+.love_for_all{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+.lower{
+    width: 95%;
+    margin: auto;
+    padding-bottom: 5%;
+}
+
+.tag{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.category button{
+    display: block;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.footer{
+    width: 85%;
+    margin: auto;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+.footer div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
