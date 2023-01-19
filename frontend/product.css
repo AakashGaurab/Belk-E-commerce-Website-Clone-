@@ -1,0 +1,32 @@
+.top_navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.logo{
+    width: 17%;
+}
+.lower_navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:1px solid black;
+}
+
+.lower_navbar>div{
+    width: 30%;
+}
+.lower_navbar>div:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.display{
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
