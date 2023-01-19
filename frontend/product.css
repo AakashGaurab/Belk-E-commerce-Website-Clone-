@@ -1,3 +1,8 @@
+body{
+    font-family:cursive;
+}
+
+
 .top_navbar{
     display: flex;
     align-items: center;
@@ -25,8 +30,24 @@
 
 
 .display{
+    width: 90%;
+    margin: auto;
     margin-top: 5%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 10px;
+    font-family: cursive;
+}
+.display div{
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.display div>button{
+    padding: 5px;
+    font-size: medium;
+    border-radius: 5px;
+    background-color:seagreen;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0px;
+    color: antiquewhite;
 }
