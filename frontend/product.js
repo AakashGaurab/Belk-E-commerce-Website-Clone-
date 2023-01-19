@@ -1,4 +1,4 @@
-
+let data;
 async  function main(){
  let res = await fetch("http://localhost:3500/product/",{
     headers:{
@@ -6,19 +6,12 @@ async  function main(){
         token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNjNjQ1ZWIzNmI3ZTNkZGQwM2E5MGFiIiwiaWF0IjoxNjc0MTEwMDEwLCJleHAiOjE2NzQxMjgwMTB9.Tp210eV2Zhs95tzD9ZgGdgK6epWEC2va05ri8cEbVC4"
     }
  });
-  let data = await res.json();
+   data = await res.json();
   display(data);
 }
 //  *******************sorting function ***********
 document.querySelector("#sort").addEventListener("change",async ()=>{
     let value = document.querySelector("#sort").value;
-    let res = await fetch("http://localhost:3500/product/",{
-    headers:{
-        "Content-Type":"application/json",
-        token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNjNjQ1ZWIzNmI3ZTNkZGQwM2E5MGFiIiwiaWF0IjoxNjc0MTEwMDEwLCJleHAiOjE2NzQxMjgwMTB9.Tp210eV2Zhs95tzD9ZgGdgK6epWEC2va05ri8cEbVC4"
-    }
- });
-    let data = await res.json();
     if (value ==""){
        display(data); 
     }
@@ -49,7 +42,17 @@ function display(data){
     });
     document.querySelector(".display").innerHTML=info.join(" ");
 }
-
+/* ***********************cart function ************************* */
 function cart(){
 }
+
+
+document.querySelector("#search_button").addEventListener("click",async ()=>{
+    let value = document.querySelector(".search_bar").value;
+  let filtered_data=data.filter((ele)=>{
+    return ele.title.toLowerCase().includes(value.toLowerCase());
+  })
+  data=filtered_data
+  display(filtered_data);
+})
 main();
