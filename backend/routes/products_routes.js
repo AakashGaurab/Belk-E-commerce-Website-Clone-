@@ -3,8 +3,6 @@ const product=express.Router();
 const {product_model,female_model,male_model}=require("../models/products_model");
 
 product.get("/",async (req,res)=>{
-    let payload=req.body;
-    await product_model.insertMany([payload]);
     let data = await product_model.find({});
 
     res.json(data);
@@ -33,7 +31,7 @@ product.post("/add",async (req,res)=>{
 })
 
 product.delete("/",async (req,res)=>{
-    await product_model.deleteMany({});
+    await male_model.deleteMany({});
     res.send("Data Deleted ") 
 })
 

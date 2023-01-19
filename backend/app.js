@@ -6,6 +6,8 @@ const {connnect}=require("./config/db");
 const {user}=require("./routes/user_route");
 const {product}=require("./routes/products_routes");
 const {authorize}=require("./middleware/jwt_authorize")
+const cors = require("cors");
+app.use(cors({origin:"*"}));
 app.use(express.json());
 
 
