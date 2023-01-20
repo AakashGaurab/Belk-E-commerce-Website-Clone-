@@ -9,6 +9,26 @@ body{
     justify-content: space-around;
 
 }
+.search_bar{
+    padding: 15px 60px;
+    font-size:larger;
+    font-family: cursive;
+    border: 1px solid black;
+    border-radius: 20px 0px 20px 0px ;
+
+}
+#search_button{
+    border-radius: 5px;
+    padding: 10px ;
+    font-style: italic;
+    background-color: rgb(250, 248, 246);
+    border: 0px;
+
+}
+#search_button:hover{
+    background-color: aqua;
+}
+
 .logo{
     width: 17%;
 }
@@ -27,7 +47,36 @@ body{
     align-items: center;
     justify-content: space-around;
 }
+    /* login signup Css */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor:grab;
+  }
+  .dropdown button{
+    border: 0px;
+    font-size: medium;
+    padding: 15px;
+ }
+ .dropdown button:hover{
+    background-color: aquamarine;
+ }
 
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+/* login signup Css */
 
 .display{
     width: 90%;

@@ -1,4 +1,7 @@
+
+
 let data;
+main();
 async  function main(){
  let res = await fetch("http://localhost:3500/product/",{
     headers:{
@@ -32,21 +35,37 @@ document.querySelector("#sort").addEventListener("change",async ()=>{
 //******************displaying function ***************** */
 function display(data){
     document.querySelector(".display").innerHTML="";
-    let info=data.map(element => {
-        return `<div class="tag">
-        <img src="${element.img}" alt="">
-        <h3>${element.title}</h3>
-        <h3>Rs ${element.price}</h3>
-        <button onclick="cart()">Add to Cart</button>
-    </div>`
+    data.forEach(element => {
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        img.setAttribute("src",element.img);
+        let title=document.createElement("h3");
+        title.innerText=element.title;
+        let price = document.createElement("h3");
+        price.innerText=element.price;
+        let cart_button=document.createElement("button");
+        cart_button.innerText="Add to Cart";
+        cart_button.addEventListener("click",()=>{
+            cart(element);
+        })
+        div.append(img,title,price,cart_button);
+        document.querySelector(".display").append(div);
     });
-    document.querySelector(".display").innerHTML=info.join(" ");
 }
 /* ***********************cart function ************************* */
-function cart(){
+async function cart(data){
+    let res=fetch("http://localhost:3500/product/cart",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+            token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNjNjQ1ZWIzNmI3ZTNkZGQwM2E5MGFiIiwiaWF0IjoxNjc0MTEwMDEwLCJleHAiOjE2NzQxMjgwMTB9.Tp210eV2Zhs95tzD9ZgGdgK6epWEC2va05ri8cEbVC4"
+
+        },
+        body:JSON.stringify(data)
+    })
 }
 
-
+/* ***********************Search function********************* */
 document.querySelector("#search_button").addEventListener("click",async ()=>{
     let value = document.querySelector(".search_bar").value;
   let filtered_data=data.filter((ele)=>{
@@ -55,4 +74,4 @@ document.querySelector("#search_button").addEventListener("click",async ()=>{
   data=filtered_data
   display(filtered_data);
 })
-main();
+
