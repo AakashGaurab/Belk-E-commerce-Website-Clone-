@@ -1,0 +1,30 @@
+#password_prompt{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #website_content{
+    display:none;
+  }
+
+
+.navbar{
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(237, 237, 245);
+}
+.navbar button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: medium;
+    background-color: rgb(233, 233, 241);
+}
+.navbar img{
+    width: 17%;
+}
+

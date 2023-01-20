@@ -1,3 +1,8 @@
+.navbar a{
+  text-decoration: none;
+  color: black;
+}
+
 .top_navbar{
     display: flex;
     align-items: center;
@@ -7,6 +12,31 @@
 .logo{
     width: 17%;
 }
+
+.search_bar{
+    padding: 15px 60px;
+    font-size:larger;
+    font-family: cursive;
+    border: 1px solid black;
+    border-radius: 20px 0px 20px 0px ;
+
+}
+#search_button{
+    font-size: medium;
+    padding: 1% 3% ;
+    font-size: medium;
+    font-family: cursive;
+    border-radius: 5px;
+    font-style: italic;
+    background-color: rgb(250, 248, 246);
+    border: 0px;
+
+}
+
+#search_button:hover{
+    background-color: aqua;
+}
+
 .lower_navbar{
     display: flex;
     align-items: center;
