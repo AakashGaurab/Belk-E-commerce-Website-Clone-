@@ -1,12 +1,22 @@
+document.querySelector("#login").addEventListener("click",()=>{
+    window.location.href="login.html"
+})
 
+document.querySelector("#signup").addEventListener("click",()=>{
+    window.location.href="signup.html"
+})
+
+document.querySelector("#cart").addEventListener("click",()=>{
+    window.location.href="cart.html";
+})
 
 let data;
 main();
 async  function main(){
+
  let res = await fetch("http://localhost:3500/product/",{
     headers:{
-        "Content-Type":"application/json",
-        token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNjNjQ1ZWIzNmI3ZTNkZGQwM2E5MGFiIiwiaWF0IjoxNjc0MTEwMDEwLCJleHAiOjE2NzQxMjgwMTB9.Tp210eV2Zhs95tzD9ZgGdgK6epWEC2va05ri8cEbVC4"
+        "Content-Type":"application/json",  
     }
  });
    data = await res.json();
@@ -42,7 +52,7 @@ function display(data){
         let title=document.createElement("h3");
         title.innerText=element.title;
         let price = document.createElement("h3");
-        price.innerText=element.price;
+        price.innerText=`Rs ${element.price}`;
         let cart_button=document.createElement("button");
         cart_button.innerText="Add to Cart";
         cart_button.addEventListener("click",()=>{
@@ -54,15 +64,26 @@ function display(data){
 }
 /* ***********************cart function ************************* */
 async function cart(data){
-    let res=fetch("http://localhost:3500/product/cart",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json",
-            token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNjNjQ1ZWIzNmI3ZTNkZGQwM2E5MGFiIiwiaWF0IjoxNjc0MTEwMDEwLCJleHAiOjE2NzQxMjgwMTB9.Tp210eV2Zhs95tzD9ZgGdgK6epWEC2va05ri8cEbVC4"
+    let token = sessionStorage.getItem("token");
+    if (token!=undefined){
+        let res=await fetch("http://localhost:3500/product/cart",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                token:token
+    
+            },
+            body:JSON.stringify(data)
+        })
+        let response = await res.json();
+        console.log(response);
+        alert(response);
 
-        },
-        body:JSON.stringify(data)
-    })
+    }
+    else {
+        alert("Login First");
+    }
+    
 }
 
 /* ***********************Search function********************* */

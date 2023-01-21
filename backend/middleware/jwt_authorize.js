@@ -8,7 +8,6 @@ let authorize=(req,res,next)=>{
       let token = req.headers.token;
       try {
     let decoded = jwt.verify(token,process.env.key);
-    console.log(decoded.user_id);
     req.body.user_id=decoded.user_id;
     next();
    } catch (error) {
