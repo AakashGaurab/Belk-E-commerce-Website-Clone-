@@ -36,17 +36,38 @@ product.post("/add",async (req,res)=>{
      
 })
 //  post for user to add to cart
-product.post("/cart",(req,res)=>{
+product.post("/cart",async (req,res)=>{
     let pay = req.body;
-    console.log(pay)
-    res.send("Thanks");
+    try {
+        await cart_model.insertMany([pay]);
+        res.json("Thanks for purchasing from us ");
+    } catch (error) {
+        res.json("Adding Product To Cart Failed")
+    }
+    
 })
 
+product.post("/get_cart_items",async (req,res)=>{
+    let user_id= req.body.user_id;
+    let data = await cart_model.find({user_id:user_id});
+    res.json(data);
+})
+
+
+product.delete("/delete",async (req,res)=>{
+    let payload = req.body;
+    try {
+        await cart_model.deleteOne(payload);
+        res.json("product removed");
+    } catch (error) {
+    res.json("Error Removing Product");    
+    }
+})
 
 //delete section for admin
 product.delete("/",async (req,res)=>{
     await male_model.deleteMany({});
-    res.send("Data Deleted ") 
+    res.json("Data Deleted ") 
 })
 
 

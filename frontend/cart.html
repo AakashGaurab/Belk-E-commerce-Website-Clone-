@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia Cart Page</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/olivia.ico">
+    <style>
+       .display{
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+       }
+       .price{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+       }
+       .price div{
+        width: 15%;
+        display: flex;
+        justify-content: space-around;
+       }
+       .price button{
+         font-family: cursive;
+         font-size: medium;
+         padding: 2px;
+         border-radius: 5px;      
+       }
+       .price button:hover{
+        background-color: aqua;
+        cursor: pointer;
+       }
+    </style>
+</head>
+<body>
+    <div class="price">
+        <div>
+            <h3>Total Price</h3>
+            <h3 id="price"></h3>
+        </div>
+        <div>
+            <button id="checkout">Proceed To Checkout </button>
+        </div>
+    </div>
+    <div class="display">
+        
+    </div>
+</body>
+<script>
+    document.querySelector("#checkout").addEventListener("click",()=>{
+        window.location.href="payment.html";
+    })
+   async  function main(){
+        let token = sessionStorage.getItem("token");
+        let res = await fetch("http://localhost:3500/product/get_cart_items",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                token:token
+            }
+        })
+        let data= await res.json();
+        console.log(data);
+        display(data);
+        price(data);
+    }
+    /* ****************Display Finction********* */
+    function display(data){
+    document.querySelector(".display").innerHTML="";
+    data.forEach(element => {
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        img.setAttribute("src",element.img);
+        let title=document.createElement("h3");
+        title.innerText=element.title;
+        let price = document.createElement("h3");
+        price.innerText=`Rs ${element.price}`;
+        let del = document.createElement("button");
+        del.innerText="Delete From Cart";
+        del.addEventListener("click",()=>{
+            delete_from_cart(element);
+        })
+        div.append(img,title,price,del);
+        document.querySelector(".display").append(div);
+    });
+}
+
+/* ************************************* */
+main();
+
+function price(data){
+  let sum = 0;
+  for (let i=0;i<data.length;i++){
+    sum = sum + Number(data[i].price);
+  }
+  document.querySelector("#price").innerText=sum;
+}
+
+
+async function delete_from_cart(data){
+   let res = await fetch("http://localhost:3500/product/delete",{
+    method:"DELETE",
+    headers:{
+        "Content-Type":"application/json"
+    },
+    body:JSON.stringify(data)
+   })
+   let response = await res.json();
+   alert(response);
+   main();
+}
+</script>
+</html>

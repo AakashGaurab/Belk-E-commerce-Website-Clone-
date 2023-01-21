@@ -4,56 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olivia Signup</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/olivia.ico">
-    <style>
-
-    </style>
+    <title>Olivia Signup Section</title>
 </head>
 <body>
-    <div class="signup">
+    <div class="sign">
         <form action="">
-            <label for="name">First Name</label>
-            <input type="text" placeholder="Enter Your Name" id="firstname" required="required"><br><br>
-            <label for="name">Last Name</label>
-            <input type="text" placeholder="Enter Your Name" id="lastname" required="required"><br><br>
+            <label for="Firstname">Firstname</label>
+            <input type="text" required="reuired" id="firstname">
+            <label for="lastname">Last Name</label>
+            <input type="text" required="required" id="lastname">
             <label for="email">Email</label>
-            <input type="text" placeholder="Enter Your mail Address" id="email" required="required"><br><br>
+            <input type="email" required="required" id="email">
             <label for="password">Password</label>
-            <input type="text" placeholder="Make Your Password" id="password" required="required"><br><br>
+            <input type="password" id="password" required="required">
             <input type="submit">
         </form>
     </div>
 </body>
 
 <script>
-    document.querySelector(".signup form").addEventListener("submit",(event)=>{
-    event.preventDefault();
-    let input = document.querySelectorAll(".signup input");
-    let obj={};
-    for (let i=0;i<input.length-1;i++){
-        obj[input[i].id]=input[i].value;
-    }
-    sign(obj);
-})
-
-async function sign(data){
-    let res = await fetch("http://localhost:3500/user/register",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify(data)
+    document.querySelector(".sign form").addEventListener("submit",(event)=>{
+        event.preventDefault();
+        let input = document.querySelectorAll(".sign input");
+        let obj={};
+        for (let i=0;i<input.length-1;i++){
+            obj[input[i].id]=input[i].value;
+        }
+        backend_sign(obj);
     })
 
-    let response=await res.json();
-    if (response=="User Added to DB"){
-        alert("Signup Sucessful")
-       // window.location.href="login.html"
+    async function backend_sign(data){
+        let res = await fetch("http://localhost:3500/user/signup",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body:JSON.stringify(data),
+        })
+        let response=await res.json();
+        if (response=="User Added"){
+            alert("Sign Up Succesful");
+            window.location.href="login.html";
+        }
+        else {
+            alert("Signup Unsucesfull Check your Internet");
+        }
     }
-    else {
-        alert("Signup unsuccesful");
-    }
-}
 </script>
 </html>
