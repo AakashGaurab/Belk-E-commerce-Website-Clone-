@@ -56,7 +56,7 @@
     })
    async  function main(){
         let token = sessionStorage.getItem("token");
-        let res = await fetch("http://localhost:3500/product/get_cart_items",{
+        let res = await fetch("https://dull-lime-ant-gown.cyclic.app/product/get_cart_items",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -102,7 +102,7 @@ function price(data){
 
 
 async function delete_from_cart(data){
-   let res = await fetch("http://localhost:3500/product/delete",{
+   let res = await fetch("https://dull-lime-ant-gown.cyclic.app/product/delete",{
     method:"DELETE",
     headers:{
         "Content-Type":"application/json"

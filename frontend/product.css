@@ -139,3 +139,30 @@ body{
         width: 100%;
     }
 }
+
+@media all and (min-width:1px) and (max-width:449px){
+    .display{
+        display:grid ;
+        grid-template-columns:1fr;
+        gap: 0.3%;
+    }
+    .display div{
+        width: 80%;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .display img{
+        width: 100%;
+    }
+    .navabar{
+        width: 90%;
+    }
+    .search_bar{
+        padding: 5px 15px;
+        font-size:small;
+        font-family: cursive;
+        border: 1px solid black;
+        
+    
+    }
+}

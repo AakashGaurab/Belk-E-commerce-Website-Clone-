@@ -71,7 +71,7 @@
     })
 
     async function backend_sign(data){
-        let res = await fetch("http://localhost:3500/user/signup",{
+        let res = await fetch("https://dull-lime-ant-gown.cyclic.app/user/signup",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -84,7 +84,7 @@
             window.location.href="login.html";
         }
         else {
-            alert("Signup Unsucesfull Check your Internet");
+            alert(response);
         }
     }
 </script>

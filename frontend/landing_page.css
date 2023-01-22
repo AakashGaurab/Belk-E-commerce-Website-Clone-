@@ -14,7 +14,7 @@
 }
 
 .search_bar{
-    padding: 15px 60px;
+    padding: 5% 10%;
     font-size:larger;
     font-family: cursive;
     border: 1px solid black;
@@ -194,4 +194,47 @@
         padding: 0px;
     }
     
+}
+
+@media all and (min-width:1px) and (max-width:449px){
+    .navabar{
+        width: 100%;
+    }
+    .daily_deals{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+    .category{
+        display: none;
+    }
+    .suit_case{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .summer_waves{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .shorts{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .tag{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .footer h2{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .search_bar{
+        padding: 5px 15px;
+        font-size:small;
+        font-family: cursive;
+        border: 1px solid black;
+        
+    
+    }
 }
