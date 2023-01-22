@@ -9,11 +9,14 @@ product.get("/",async (req,res)=>{
 })
 // post product for admin
 product.post("/add",async (req,res)=>{
-    if (req.email=="admin@gmail.com"){
+    if (req.body.user_id!=undefined){
+        console.log(req.body);
         if (req.body.category=="female"){
             let payload = req.body;
+            delete payload.user_id;
             try {
                 await female_model.insertMany([payload]);
+                await product_model.insertMany([payload]);
                 res.json("product uploaded")
             } catch (error) {
                res.json("Error uploading product") 
@@ -21,8 +24,10 @@ product.post("/add",async (req,res)=>{
         }
         else if (req.body.category=="male"){
             let payload = req.body;
+            delete payload.user_id;
             try {
                 await male_model.insertMany([payload]);
+                await product_model.insertMany([payload]);
                 res.json("product uploaded")
             } catch (error) {
                res.json("Error uploading product") 

@@ -10,6 +10,10 @@ document.querySelector("#cart").addEventListener("click",()=>{
     window.location.href="cart.html";
 })
 
+document.querySelector(".logo").addEventListener("click",()=>{
+    window.location.href="landing_page.html"
+})
+
 let data;
 main();
 async  function main(){
@@ -89,7 +93,13 @@ async function cart(data){
 /* ***********************Search function********************* */
 document.querySelector("#search_button").addEventListener("click",async ()=>{
     let value = document.querySelector(".search_bar").value;
-  let filtered_data=data.filter((ele)=>{
+    let res = await fetch("http://localhost:3500/product/",{
+    headers:{
+        "Content-Type":"application/json",  
+    }
+ });
+   data1 = await res.json();
+  let filtered_data=data1.filter((ele)=>{
     return ele.title.toLowerCase().includes(value.toLowerCase());
   })
   data=filtered_data

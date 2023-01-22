@@ -77,6 +77,27 @@ body{
   }
 
 /* login signup Css */
+#login{
+   padding: 0.5% 1%;
+   border-radius: 5px;
+   background-color: aquamarine;
+   font-size: medium;
+   font-family: cursive;
+}
+#signup{
+    padding: 0.5% 1%;
+   border-radius: 5px;
+   background-color: aquamarine;
+   font-size: medium;
+   font-family: cursive;
+}
+#cart{
+    padding: 0.5% 1%;
+   border-radius: 5px;
+   background-color: aquamarine;
+   font-size: medium;
+   font-family: cursive;
+}
 
 .display{
     width: 90%;
@@ -84,13 +105,15 @@ body{
     margin-top: 5%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 10px;
+    gap: 1%;
     font-family: cursive;
 }
 .display div{
+    width: 100%;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 .display div>button{
     padding: 5px;
     font-size: medium;
@@ -99,4 +122,20 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     border: 0px;
     color: antiquewhite;
+}
+
+@media all and (min-width:450px) and (max-width:750px){
+    .display{
+        display:grid ;
+        grid-template-columns: repeat(2,1fr);
+        gap: 0.3%;
+    }
+    .display div{
+        width: 80%;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .display img{
+        width: 100%;
+    }
 }

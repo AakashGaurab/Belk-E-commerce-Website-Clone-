@@ -5,17 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olivia Login Page</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/olivia.ico">
+    <style>
+        body{
+            font-family: cursive;
+            background-image:url("./anotherfinal.jpg");
+            background-repeat: no-repeat;
+        }
+        .dis{
+            width: 40%;
+            height: 300px;
+            margin: 8% auto;
+            border: 1px solid black;
+        }
+        .log{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+       #submit{
+        padding: 0.5% 1%;
+        border: 0px ;
+        background-color: aquamarine;
+        border-radius: 5px;
+        display: block;
+        margin: auto;
+       }
+       #submit:hover{
+        background-color: aqua;
+        color: coral;
+        cursor: pointer;
+       }
+    </style>
 </head>
 <body>
-    <div class="log">
-        <form action="">
-            <label for="email">Email</label>
-            <input type="email" id="email" required="required">
-            <label for="password">Password</label>
-            <input type="password" required="required" id="password">
-            <input type="submit">
-        </form>
+    <h2>Login Section </h2>
+    <div class="dis">
+        
+        <div class="log">
+            <form action="">
+                <label for="email">Email</label>
+                <input type="email" id="email" required="required"><br><br>
+                <label for="password">Password</label>
+                <input type="password" required="required" id="password"><br><br>
+                <input id="submit" type="submit">
+            </form>
+        </div>
     </div>
+    
 </body>
 <script>
     document.querySelector(".log form").addEventListener("submit",(event)=>{
