@@ -1,4 +1,9 @@
 #password_prompt{
+  width: auto;
+  height: auto;
+  padding: 5% 7%;
+  border-radius: 30px;
+  border: 1px solid black;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -26,5 +31,9 @@
 }
 .navbar img{
     width: 17%;
+}
+
+.display img{
+  width: 30%;
 }
 

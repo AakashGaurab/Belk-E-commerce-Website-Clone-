@@ -40,6 +40,19 @@ product.post("/add",async (req,res)=>{
    
      
 })
+
+
+product.patch("/",async (req,res)=>{
+    let payload = req.body;
+    try {
+        await product_model.updateOne({title:payload.title},{$set:payload}) ;
+        res.json("Product Updated");
+    } catch (error) {
+       res.json("Error Updating");
+    }
+    
+    
+})
 //  post for user to add to cart
 product.post("/cart",async (req,res)=>{
     let pay = req.body;
