@@ -10,7 +10,7 @@ document.querySelector("#password_prompt form").addEventListener("submit",(event
 
 
 async function login(obj){
-    let res = await fetch("http://localhost:3500/user/login",{
+    let res = await fetch("https://dull-lime-ant-gown.cyclic.app/user/login",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -49,7 +49,7 @@ document.querySelector(".display form").addEventListener("submit",(event)=>{
 })
 
 async function post_product(data){
-    let res= await fetch("http://localhost:3500/product/add",{
+    let res= await fetch("https://dull-lime-ant-gown.cyclic.app/product/add",{
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -68,7 +68,7 @@ async function post_product(data){
 }
 
 async function patch(data){
-    let res = await fetch("http://localhost:3500/product/",{
+    let res = await fetch("https://dull-lime-ant-gown.cyclic.app/product/",{
         method:"PATCH",
         headers:{
             "Content-Type":"application/json"
@@ -81,7 +81,7 @@ async function patch(data){
 
 
 document.querySelector("#update").addEventListener("click",async ()=>{
-    let res=await fetch("http://localhost:3500/product/",{
+    let res=await fetch("https://dull-lime-ant-gown.cyclic.app/product/",{
         method:"GET",
         headers:{
             "Content-Type":"application/json"

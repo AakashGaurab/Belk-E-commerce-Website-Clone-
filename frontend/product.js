@@ -18,7 +18,7 @@ let data;
 main();
 async  function main(){
 
- let res = await fetch("http://localhost:3500/product/",{
+ let res = await fetch("https://dull-lime-ant-gown.cyclic.app/product/",{
     headers:{
         "Content-Type":"application/json",  
     }
@@ -70,7 +70,7 @@ function display(data){
 async function cart(data){
     let token = sessionStorage.getItem("token");
     if (token!=undefined){
-        let res=await fetch("http://localhost:3500/product/cart",{
+        let res=await fetch("https://dull-lime-ant-gown.cyclic.app/product/cart",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
@@ -93,7 +93,7 @@ async function cart(data){
 /* ***********************Search function********************* */
 document.querySelector("#search_button").addEventListener("click",async ()=>{
     let value = document.querySelector(".search_bar").value;
-    let res = await fetch("http://localhost:3500/product/",{
+    let res = await fetch("https://dull-lime-ant-gown.cyclic.app/product/",{
     headers:{
         "Content-Type":"application/json",  
     }
