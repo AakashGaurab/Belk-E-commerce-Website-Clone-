@@ -46,9 +46,14 @@ End User Documentation : User will first be able to see the landing page , The l
 #Backend Link:[Backend] (https://dull-lime-ant-gown.cyclic.app/)
 
 #FrontEnd Link :[Frontend] (https://mellow-manatee-be0e70.netlify.app)
-
+<h3>Landing Page</h3>
 <img src="https://github.com/AakashGaurab/quickest-seashore-9367/blob/main/images/landing%20page.png">
 
+<h3>Footer</h3>
+<img src="https://github.com/AakashGaurab/quickest-seashore-9367/blob/main/images/footer.png">
+
+<h3>Product Page </h3>
+<img src="https://github.com/AakashGaurab/quickest-seashore-9367/blob/main/images/product.png">
 
 
 
