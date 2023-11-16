@@ -90,9 +90,43 @@ async function cart(data){
     
 }
 
+document.querySelector(".search_bar").addEventListener("input",(e)=>{
+    if (e.target.value!=""){
+        suggestion_bar(e.target.value);
+    } 
+    
+})
+
+
+function suggestion_bar(text){
+    let suggestions = JSON.parse(localStorage.getItem("sug"))||[];
+    let filtered_data=suggestions.filter((ele)=>{
+    return ele.toLowerCase().includes(text.toLowerCase());
+    })
+    displayFilteredData(filtered_data);
+}
+
+
+function displayFilteredData(data){
+    document.querySelector(".suggestion").innerHTML="";
+    data.forEach(element => {
+        let li = document.createElement("li");
+        li.innerText = element;
+        li.addEventListener("click",()=>{
+            document.querySelector(".search_bar").value = element;
+            suggestion_bar(element);
+        })
+        document.querySelector(".suggestion").append(li);
+    });
+}
+
+
 /* ***********************Search function********************* */
 document.querySelector("#search_button").addEventListener("click",async ()=>{
     let value = document.querySelector(".search_bar").value;
+    let suggestions = JSON.parse(localStorage.getItem("sug"))|| [];
+    suggestions.push(value);
+    localStorage.setItem("sug",JSON.stringify(suggestions));
     let res = await fetch("https://dull-lime-ant-gown.cyclic.app/product/",{
     headers:{
         "Content-Type":"application/json",  
